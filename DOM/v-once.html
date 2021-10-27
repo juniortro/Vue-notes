@@ -9,8 +9,9 @@
 </head>
 <body>
   <div id="app">
-    <p>{{ titulo }}</p>
+    <p v-once>{{ titulo }}</p>
     <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
   </div>
 </body>
 </html>
@@ -19,11 +20,13 @@
   new Vue({
     el: '#app',
     data: {
-      titulo: 'Começando os trabalhos...'
+      titulo: 'Começando os trabalhos...',
+      link: 'http://www.google.com.br'
     },
     methods: {
       saudacao(){
-        return 'boa noite'
+        this.titulo = "Bom dia!!"
+        return this.titulo
       }
     },
   })
